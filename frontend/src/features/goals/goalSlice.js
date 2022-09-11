@@ -90,8 +90,11 @@ export const goalSlice = createSlice({
                 state.isLoading = false
                 state.isSuccess = true
                 // filter out the UI when delete a goal, only show goals that are not deleted
+                console.log("confirm")
                 state.goals = state.goals.filter(
-                    (goal) => goal._id !== action.payload.id)
+                    goal => goal._id !== action.payload.id)
+                    console.log(action.payload.id)
+                    console.log(state.goals)
     
             })
             .addCase(deleteGoal.rejected, (state, action) => {

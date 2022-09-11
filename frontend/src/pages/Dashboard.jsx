@@ -14,6 +14,8 @@ function Dashboard() {
   const {user} = useSelector((state) => state.auth) 
   const {goals, isLoading, isError, message} = useSelector((state) => state.goals)
 
+
+
   useEffect(() => {
     if(isError) {
       console.log(message)
@@ -24,39 +26,47 @@ function Dashboard() {
     }
 
     dispatch(getGoals())
+    console.log("I reached this point")
 
     return () => {
       dispatch(reset())
     }
+   
   }, [user, navigate, isError, message, dispatch])
 
   if(isLoading) {
     return <Spinner />
   }
 
-  return (
-    <>
-      <section className="heading">
-        <h1>Welcome {user.name} </h1>
-        <p>Goals Dashboard</p>
-      </section>
 
-      <GoalForm/>
+ if(!user) {
+    navigate('/login')
+  } else {
+    return (
+      <>
+        <section className="heading">
+          <h1>Welcome {user.name} </h1>
+          <p>Goals Dashboard</p>
+        </section>
 
-      <section className="content">
-        {goals.length > 0 ? (
-          <div className="goals">
-            {goals.map((goal) => (
-              <GoalItem key={goal._id} goal={goal} />
-            ))}
+        <GoalForm/>
 
-          </div>
-        ) : 
-        (<h3> You have not set any goals </h3>)} 
+        <section className="content">
+          {goals.length > 0 ? (
+            <div className="goals">
+              {goals.map((goal) => (
+                <GoalItem key={goal._id} goal={goal} />
+              ))}
 
-      </section>
-    </>
-  )
+            </div>
+          ) : 
+          (<h3> You have not set any goals </h3>)} 
+
+        </section>
+      </>
+    )
+
+}
 }
 
 export default Dashboard
