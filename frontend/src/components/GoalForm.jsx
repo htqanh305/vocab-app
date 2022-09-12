@@ -8,7 +8,7 @@ function GoalForm() {
     
     const dispatch = useDispatch()
     
-    const onSubmit = e => {
+    const onSubmit = (e) => {
         e.preventDefault()
 
         dispatch(createGoal({text}))

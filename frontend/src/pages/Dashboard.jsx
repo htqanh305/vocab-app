@@ -21,15 +21,14 @@ function Dashboard() {
       console.log(message)
     }
 
-    if(!user) {
+    /*if(!user) {
       navigate('/login')
-    }
+    }*/
 
-    dispatch(getGoals())
-    console.log("I reached this point")
+    dispatch(reset()) // so that can delete multiple goals at once
 
     return () => {
-      dispatch(reset())
+      dispatch(getGoals())
     }
    
   }, [user, navigate, isError, message, dispatch])
