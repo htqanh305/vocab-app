@@ -43,12 +43,12 @@ const putVocab = asyncHandler(async(req, res) => {
 
 
     //check if the token returns a valid user
-    if(!reg.user){
+    if(!req.user){
         res.status(401)
         throw new Error('User not found')
     }
     // if valid user found, make sure logged in user matches goal's user
-    if(vocab.user.toString() !== reg.user.id) {
+    if(vocab.user.toString() !== req.user.id) {
         res.status(401)
         throw new Error('User not authorized')
     }
