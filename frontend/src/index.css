@@ -86,20 +86,20 @@ h3 {
   color: #828282;
 }
 
-.goals {
+.vocabs {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 }
 
-.goal {
+.vocab {
   background-color: #f4f4f4;
   margin: 10px 0;
   padding: 20px 0 10px;
   position: relative;
 }
 
-.goal .close {
+.vocab .close {
   position: absolute;
   top: 10px;
   right: 15px;
@@ -191,6 +191,15 @@ h3 {
   animation: spin 1.2s linear infinite;
 }
 
+.edit {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -213,3 +222,5 @@ h3 {
     font-size: 1.5rem;
   }
 }
+
+

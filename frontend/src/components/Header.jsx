@@ -16,7 +16,7 @@ function Header() {
     return(
         <header className='header'>
             <div className='logo'>
-                <Link to='/'>Vocabulary App</Link>
+                <Link to='/'>Voc-App</Link>
             </div>
             <ul>
                 {user ? (

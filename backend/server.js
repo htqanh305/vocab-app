@@ -19,7 +19,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extened: false }))
 
 
-app.use('/api/goals', require('./routes/goalRoutes'))
+app.use('/api/vocabs', require('./routes/vocabRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
 
 app.use(errorHandler)
