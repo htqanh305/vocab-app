@@ -34,7 +34,7 @@ export const getVocabs = createAsyncThunk('vocabs/getAll', async (_, thunkAPI) =
 })
 
 // Edit vocab
-export const editVocab = createAsyncThunk('vocabs/edit', async(id, vocabData, thunkAPI) => {
+export const editVocab = createAsyncThunk('vocabs/edit', async({id, vocabData}, thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token // get token from outside of goal state (auth state)
         return await vocabService.editVocab(id, vocabData, token)
@@ -49,7 +49,9 @@ export const editVocab = createAsyncThunk('vocabs/edit', async(id, vocabData, th
 export const deleteVocab = createAsyncThunk('goals/delete', async(id, thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token // get token from outside of goal state (auth state)
+        console.log("test")
         return await vocabService.deleteVocab(id, token)
+        
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
         return thunkAPI.rejectWithValue(message)
@@ -97,16 +99,18 @@ export const vocabSlice = createSlice({
             })
             .addCase(editVocab.pending, (state) => {
                 state.isLoading = true
+                
             })
             .addCase(editVocab.fulfilled, (state, action) => {
                 state.isLoading = false
                 state.isSuccess = true
-                state.vocabs.push(action.payload)
+                state.vocabs.concat(action.payload)
     
             })
             .addCase(editVocab.rejected, (state, action) => {
                state.isLoading = false
                state.isError = true
+               //console.log(action.payload._id)
                state.message = action.payload
             })
             .addCase(deleteVocab.pending, (state) => {
@@ -117,8 +121,8 @@ export const vocabSlice = createSlice({
                 state.isSuccess = true
                 // filter out the UI when delete a goal, only show goals that are not deleted
                 // another way: add getgoals at onclick
-                state.vocabs = state.goals.filter(
-                    vocab => vocab._id !== action.payload.id)
+                //state.vocabs = state.goals.filter(
+                //   vocab => vocab._id !== action.payload.id)
                    
              })
             .addCase(deleteVocab.rejected, (state, action) => {

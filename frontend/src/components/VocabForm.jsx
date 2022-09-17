@@ -32,15 +32,15 @@ function VocabForm() {
         <form onSubmit={onSubmit}>
             <div className="form-group">
                 <label htmlFor="word">Add a word:</label>
-                <input type="text"  name='word' id='word' value={word} 
+                <input type="text"  name='word' id='word' value={word} required
                 onChange={onChange} />
 
                 <label htmlFor="definition">Add a definition:</label>
-                <input type="text"  name='definition' id='definition' value={definition} 
+                <input type="text"  name='definition' id='definition' value={definition} required
                 onChange={onChange} />
 
                 <label htmlFor="sentence">Add a sentence:</label>
-                <input type="text"  name='sentence' id='sentence' value={sentence} 
+                <textarea type="text"  name='sentence' id='sentence' value={sentence} required
                 onChange={onChange} />
             </div>
             <div className="form-group">

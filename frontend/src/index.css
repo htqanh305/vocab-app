@@ -108,6 +108,30 @@ h3 {
   background: none;
 }
 
+.popup {
+  position: relative;
+  display: flex;
+  margin: 0px 0px -10px 0px;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-inner{
+  position: relative;
+  padding: 32px;
+  width: 100%;
+  max-width: 640px;
+  background-color: #fff;
+}
+
+.popup-inner .close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: none;
+  background: none;
+}
+
 .form,
 .content {
   width: 70%;

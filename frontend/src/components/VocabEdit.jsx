@@ -1,9 +1,9 @@
 import {useState} from 'react'
 import {useDispatch} from 'react-redux'
-import { editVocab } from '../features/vocabs/vocabSlice'
+import { editVocab, getVocabs } from '../features/vocabs/vocabSlice'
 
 
-function VocabEdit() {
+function VocabEdit({vocab}) {
     const [wordCard, setCard] = useState({
         word: '',
         definition: '',
@@ -21,10 +21,11 @@ function VocabEdit() {
     }
     
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault()
 
-        dispatch(editVocab(wordCard))
+        await dispatch(editVocab({id: vocab._id, vocabData: wordCard}))
+        dispatch(getVocabs())
     }
 
     return (
@@ -32,15 +33,15 @@ function VocabEdit() {
         <form onSubmit={onSubmit}>
             <div className="form-group">
                 <label htmlFor="word">Edit word:</label>
-                <input type="text"  name='word' id='word' value={word} 
+                <input type="text"  name='word' id='word' placeholder={vocab.word} value={word} required
                 onChange={onChange} />
 
                 <label htmlFor="definition">Edit definition:</label>
-                <input type="text"  name='definition' id='definition' value={definition} 
+                <input type="text"  name='definition' id='definition' placeholder={vocab.definition} value={definition} required
                 onChange={onChange} />
 
                 <label htmlFor="sentence">Edit sentence:</label>
-                <input type="text"  name='sentence' id='sentence' value={sentence} 
+                <textarea type="text"  name='sentence' id='sentence' placeholder={vocab.sentence} value={sentence} required
                 onChange={onChange} />
             </div>
             <div className="form-group">
