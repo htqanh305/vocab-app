@@ -15,6 +15,10 @@ const vocabSchema = mongoose.Schema({
         type: String,
         required: [true, 'Please add a word']
     },
+    wordType: {
+        type: String,
+        required: [true, 'Please add a word type']
+    },
     definition: {
         type: String,
         required: [true, 'Please add a definition']

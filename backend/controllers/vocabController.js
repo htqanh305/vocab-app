@@ -22,6 +22,7 @@ const setVocab = asyncHandler(async(req, res) => {
     }
     const vocab = await Vocab.create({
         word: req.body.word,
+        wordType: req.body.wordType,
         definition: req.body.definition,
         sentence: req.body.sentence,
         user: req.user.id,

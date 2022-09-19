@@ -52,7 +52,7 @@ function Dashboard() {
 
         <section className="content">
           {vocabs.length > 0 ? (
-            <div className="goals">
+            <div className="vocabs">
               {vocabs.map((vocab) => (
                 <VocabItem key={vocab._id} vocab={vocab} />
               ))}
