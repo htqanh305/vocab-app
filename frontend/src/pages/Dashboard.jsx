@@ -3,6 +3,7 @@ import {useNavigate} from 'react-router-dom' // for redirecting
 import {useSelector, useDispatch} from 'react-redux' // grab user to check state
 import VocabForm from '../components/VocabForm'
 import VocabItem from '../components/VocabItem'
+import VocabSearchResult from '../components/VocabSearchResult'
 import Spinner from '../components/Spinner'
 import {getVocabs, reset} from '../features/vocabs/vocabSlice'
 
@@ -12,10 +13,8 @@ function Dashboard() {
   const dispatch = useDispatch()
 
   const {user} = useSelector((state) => state.auth) 
-  const {vocabs, isLoading, isError, message} = useSelector((state) => state.vocabs)
-
-
-
+  const {vocabs, isLoading, isError, message} = useSelector((state) => state.vocabs)  
+ 
   useEffect(() => {
     if(isError) {
       console.log(message)
@@ -46,9 +45,10 @@ function Dashboard() {
         <section className="heading">
           <h1>Welcome {user.name} </h1>
           <p>Vocabulary Dashboard</p>
-        </section>
+        </section> 
 
         <VocabForm/>
+            
 
         <section className="content">
           {vocabs.length > 0 ? (
@@ -62,6 +62,10 @@ function Dashboard() {
           (<h3> You have not created any vocabulary cards </h3>)} 
 
         </section>
+
+
+        <VocabSearchResult/>
+
       </>
     )
 

@@ -12,6 +12,14 @@ const getVocabs = asyncHandler(async (req, res) => {
     res.status(200).json(vocabs)
 })
 
+// @desc Search vocabs
+// @route GET /api/vocabs
+// @access Public
+const searchVocabs = asyncHandler(async (req, res) => {
+    const vocabs = await Vocab.find({word: req.params.word})  // return cards containing that word
+    res.status(200).json(vocabs)
+})
+
 // @desc set vocab
 // @route POST /api/vocabs
 // @access Private
@@ -87,6 +95,7 @@ const deleteVocab = asyncHandler(async(req, res) => {
 
 module.exports = {
     getVocabs, 
+    searchVocabs,
     setVocab, 
     putVocab, 
     deleteVocab

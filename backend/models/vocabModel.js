@@ -13,6 +13,7 @@ const vocabSchema = mongoose.Schema({
     },
     word: {
         type: String,
+        lowercase: true, //easier for searchVocabs
         required: [true, 'Please add a word']
     },
     wordType: {

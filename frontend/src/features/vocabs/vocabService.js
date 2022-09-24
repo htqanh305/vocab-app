@@ -14,6 +14,7 @@ const createVocab = async (vocabData, token) => {
     return response.data
 }
 
+
 // get user vocab
 const getVocabs = async (token) => {
     const config = {
@@ -23,6 +24,13 @@ const getVocabs = async (token) => {
     }
 
     const response = await axios.get(API_URL, config)
+
+    return response.data
+}
+
+// search for word
+const searchVocabs = async (word) => {
+    const response = await axios.get(API_URL + word)
 
     return response.data
 }
@@ -58,6 +66,7 @@ const deleteVocab = async (vocabId, token) => {
 const vocabService = {
     createVocab,
     getVocabs,
+    searchVocabs,
     editVocab,
     deleteVocab,
 }
