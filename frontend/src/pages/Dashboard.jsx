@@ -4,8 +4,9 @@ import {useSelector, useDispatch} from 'react-redux' // grab user to check state
 import VocabForm from '../components/VocabForm'
 import VocabItem from '../components/VocabItem'
 import VocabSearchResult from '../components/VocabSearchResult'
+import VocabLearnedBoard from '../components/VocabLearnedBoard'
 import Spinner from '../components/Spinner'
-import {getVocabs, reset} from '../features/vocabs/vocabSlice'
+import {getVocabs, getLearnedVocabs, reset} from '../features/vocabs/vocabSlice'
 
 
 function Dashboard() {
@@ -24,10 +25,11 @@ function Dashboard() {
       navigate('/login')
     }*/
 
-    dispatch(reset()) // so that can delete multiple goals at once
+    // dispatch(reset()) // so that can delete multiple goals at once
 
     return () => {
       dispatch(getVocabs())
+      dispatch(getLearnedVocabs())
     }
    
   }, [user, navigate, isError, message, dispatch])
@@ -66,6 +68,10 @@ function Dashboard() {
 
 
         <VocabSearchResult/>
+
+        <VocabLearnedBoard/>
+
+ 
 
       </>
     )

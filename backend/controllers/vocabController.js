@@ -7,10 +7,19 @@ const User = require('../models/userModel') // to use for put/delete => only put
 // @route GET /api/vocabs
 // @access Private
 const getVocabs = asyncHandler(async (req, res) => {
-    const vocabs = await Vocab.find({ user: req.user.id }) // req.user.id gotten from the protect function calles by the route
-    // so that to get vocabs from the user of right id (or token gotten from logn/create user)
+    const vocabs = await Vocab.find({ user: req.user.id, learned: false }) // get new vocabs
+
     res.status(200).json(vocabs)
 })
+
+// @desc Get leanred vocabs
+// @route GET /api/vocabs
+// @access Private
+const getLearnedVocabs = asyncHandler(async (req, res) => {
+    const vocabs = await Vocab.find({ user: req.user.id, learned: true }) // get learned vocabs
+    res.status(200).json(vocabs)
+})
+
 
 // @desc Search vocabs
 // @route GET /api/vocabs
@@ -88,13 +97,13 @@ const deleteVocab = asyncHandler(async(req, res) => {
         throw new Error('User not authorized')
     }
 
-
-    await vocab.remove()
-    res.status(200).json({ id: req.params.id })
+    const learnedVocab = await Vocab.findByIdAndUpdate(req.params.id, {learned: true}, {new: true})
+    res.status(200).json(learnedVocab)
 })
 
 module.exports = {
     getVocabs, 
+    getLearnedVocabs,
     searchVocabs,
     setVocab, 
     putVocab, 

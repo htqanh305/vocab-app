@@ -27,6 +27,10 @@ const vocabSchema = mongoose.Schema({
     sentence: {
         type: String,
         required: [true, 'Please add a sentence']
+    },
+    learned: {
+        type: Boolean,
+        default: false
     }
 }, {
     timestamps: true

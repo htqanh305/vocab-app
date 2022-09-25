@@ -1,15 +1,11 @@
-
-
-function VocabSearchItem({vocab}) {
+function VocabLearnedItem({vocab}) {
     return (    
         <div className="vocab">            
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <div className="card-block">
-                            <div>
-                                <h6>Author: {vocab.author}</h6>
-                            </div>
+                            
                             <h1 className="word">{vocab.word}</h1>
                             <h3>Sentence: "{vocab.sentence}"</h3>
                         </div>
@@ -26,4 +22,4 @@ function VocabSearchItem({vocab}) {
   )
 }
 
-export default VocabSearchItem
+export default VocabLearnedItem

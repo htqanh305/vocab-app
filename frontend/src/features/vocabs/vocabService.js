@@ -28,6 +28,19 @@ const getVocabs = async (token) => {
     return response.data
 }
 
+// get learned vocab
+const getLearnedVocabs = async (token) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+
+    const response = await axios.get(API_URL + 'get/learned', config)
+
+    return response.data
+}
+
 // search for word
 const searchVocabs = async (word) => {
     const response = await axios.get(API_URL + word)
@@ -66,6 +79,7 @@ const deleteVocab = async (vocabId, token) => {
 const vocabService = {
     createVocab,
     getVocabs,
+    getLearnedVocabs,
     searchVocabs,
     editVocab,
     deleteVocab,

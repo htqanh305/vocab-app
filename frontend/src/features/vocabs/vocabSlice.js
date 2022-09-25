@@ -4,6 +4,7 @@ import vocabService from './vocabService'
 const initialState = {
     vocabs: [],
     searchedVocabs: [],
+    learnedVocabs: [],
     isError: false,
     isSuccess: false,
     isLoading: false,
@@ -24,10 +25,21 @@ export const createVocab = createAsyncThunk('vocabs/create', async(vocabData, th
 } )
 
 // Get user vocabs
-export const getVocabs = createAsyncThunk('vocabs/getAll', async (_, thunkAPI) => {
+export const getVocabs = createAsyncThunk('vocabs/getNew', async (_, thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token // get token from outside of goal state (auth state)
         return await vocabService.getVocabs(token)
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
+        return thunkAPI.rejectWithValue(message)
+    }
+})
+
+// Get learned vocabs
+export const getLearnedVocabs = createAsyncThunk('vocabs/getLearned', async (_, thunkAPI) => {
+    try {
+        const token = thunkAPI.getState().auth.user.token // get token from outside of goal state (auth state)
+        return await vocabService.getLearnedVocabs(token)
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
         return thunkAPI.rejectWithValue(message)
@@ -105,6 +117,21 @@ export const vocabSlice = createSlice({
                 state.vocabs = action.payload    
             })
             .addCase(getVocabs.rejected, (state, action) => {
+               state.isLoading = false
+               state.isError = true
+               state.message = action.payload
+            })
+
+
+            .addCase(getLearnedVocabs.pending, (state) => {
+                state.isLoading = true
+            })
+            .addCase(getLearnedVocabs.fulfilled, (state, action) => {
+                state.isLoading = false
+                state.isSuccess = true
+                state.learnedVocabs = action.payload    
+            })
+            .addCase(getLearnedVocabs.rejected, (state, action) => {
                state.isLoading = false
                state.isError = true
                state.message = action.payload

@@ -1,5 +1,5 @@
 import {useDispatch} from 'react-redux'
-import { deleteVocab, getVocabs, editVocab } from '../features/vocabs/vocabSlice'
+import { deleteVocab, getVocabs, getLearnedVocabs } from '../features/vocabs/vocabSlice'
 import { useState } from 'react'
 import Popup from './Popup'
 import VocabEdit from './VocabEdit'
@@ -40,7 +40,9 @@ function VocabItem({vocab}) {
 
         <button onClick={async () => {
             await dispatch(deleteVocab(vocab._id))
-            dispatch(getVocabs())}} className="close">X</button>
+            dispatch(getVocabs())
+            dispatch(getLearnedVocabs())
+            }} className="close">X</button>
 
         <Popup trigger={buttonPopup} setTrigger={setButtonPopup}> 
             <VocabEdit key={vocab._id} vocab={vocab}/>
