@@ -69,7 +69,7 @@ function VocabEdit({vocab}) {
                 onChange={onChange} />
             </div>
             <div className="form-group">
-                <button className="btn btn-block" type='submit' >
+                <button className="edit-btn" type='submit' >
                     Edit Card
                 </button>
             </div>

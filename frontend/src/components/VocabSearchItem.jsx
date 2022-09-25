@@ -10,7 +10,7 @@ function VocabSearchItem({vocab}) {
                             <div>
                                 <h6>Author: {vocab.author}</h6>
                             </div>
-                            <h1>{vocab.word}</h1>
+                            <h1 className="word">{vocab.word}</h1>
                             <h3>Sentence: "{vocab.sentence}"</h3>
                         </div>
                     </div>

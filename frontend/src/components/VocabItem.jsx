@@ -16,9 +16,10 @@ function VocabItem({vocab}) {
                 <div class="flip-card-front">
                     <div className="card-block">
                         <div>
-                            {new Date(vocab.createdAt).toLocaleDateString('en-US')}
+                            <p>{new Date(vocab.createdAt).toLocaleDateString('en-US')}</p>
+                            
                         </div>
-                        <h1>{vocab.word}</h1>
+                        <h1 className="word">{vocab.word}</h1>
                         <h3>My sentence: "{vocab.sentence}"</h3>
                     </div>
                 </div>

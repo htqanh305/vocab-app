@@ -9,9 +9,7 @@ function VocabSearchResult() {
 
     return (
       <>
-        <section className="heading">
-          <p>Search your friends' cards</p>
-        </section>
+        <div className="title"> Search your friends' cards</div>
         <VocabSearch/>
         
         <section className="content">

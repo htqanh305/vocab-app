@@ -44,9 +44,10 @@ function Dashboard() {
       <>
         <section className="heading">
           <h1>Welcome {user.name} </h1>
-          <p>Vocabulary Dashboard</p>
         </section> 
 
+        <div className="title"> Start adding vocabulary cards here</div>
+        
         <VocabForm/>
             
 
