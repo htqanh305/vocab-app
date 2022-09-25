@@ -1,4 +1,4 @@
-import {useSelector, useDispatch} from 'react-redux' // grab user to check state
+import {useSelector, useDispatch} from 'react-redux' 
 import VocabLearnedItem from './VocabLearnedItem'
 
 

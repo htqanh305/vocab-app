@@ -37,7 +37,7 @@ function VocabForm() {
                 onChange={onChange} />
                 
 
-                <fieldset class="word-type">
+                <fieldset className="word-type">
                     <legend>Type of the word: </legend>
 
                     <div> Noun <input type="radio"  name='wordType' id='n' value='n' required

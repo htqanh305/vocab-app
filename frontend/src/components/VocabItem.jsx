@@ -11,9 +11,9 @@ function VocabItem({vocab}) {
     return (
     <div className="vocab">
                 
-        <div class="flip-card">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
+        <div className="flip-card">
+            <div className="flip-card-inner">
+                <div className="flip-card-front">
                     <div className="card-block">
                         <div>
                             <p>{new Date(vocab.createdAt).toLocaleDateString('en-US')}</p>
@@ -23,7 +23,7 @@ function VocabItem({vocab}) {
                         <h3>My sentence: "{vocab.sentence}"</h3>
                     </div>
                 </div>
-                <div class="flip-card-back">
+                <div className="flip-card-back">
                     <div className="card-block">
                         <h4>( {vocab.wordType} )</h4>
                         <h3>Definition: {vocab.definition}</h3>
@@ -42,7 +42,7 @@ function VocabItem({vocab}) {
             await dispatch(deleteVocab(vocab._id))
             dispatch(getVocabs())
             dispatch(getLearnedVocabs())
-            }} className="close">X</button>
+            }} className="close">Mark Learned</button>
 
         <Popup trigger={buttonPopup} setTrigger={setButtonPopup}> 
             <VocabEdit key={vocab._id} vocab={vocab}/>

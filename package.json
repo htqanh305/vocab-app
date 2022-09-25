@@ -12,6 +12,7 @@
   "author": "Anh Huynh",
   "license": "MIT",
   "dependencies": {
+    "apexcharts": "^3.35.5",
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "cors": "^2.8.5",
@@ -20,6 +21,7 @@
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.6.0",
+    "react-apexcharts": "^1.4.0",
     "react-inline-editing": "^1.0.10"
   },
   "devDependencies": {

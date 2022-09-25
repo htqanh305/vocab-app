@@ -25,7 +25,8 @@ const getLearnedVocabs = asyncHandler(async (req, res) => {
 // @route GET /api/vocabs
 // @access Public
 const searchVocabs = asyncHandler(async (req, res) => {
-    const vocabs = await Vocab.find({word: req.params.word})  // return cards containing that word
+    const target = req.params.word
+    const vocabs = await Vocab.find({word: {$regex: target} })  // return cards containing that word
     res.status(200).json(vocabs)
 })
 

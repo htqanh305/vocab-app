@@ -36,7 +36,7 @@ function VocabEdit({vocab}) {
                 <input type="text"  name='word' id='word' placeholder={vocab.word} value={word} required
                 onChange={onChange} />
 
-                <fieldset class="word-type-edit">
+                <fieldset className="word-type-edit">
                     <legend>Type of the word: </legend>
 
                     <div> Noun <input type="radio"  name='wordType' id='n' value='n' required

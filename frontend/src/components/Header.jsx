@@ -13,6 +13,14 @@ function Header() {
         dispatch(reset())
         navigate('/login')
     }
+
+    const onSettings = () => {
+        navigate('/dashboard')
+    }
+
+    const onHome = () => {
+        navigate('/')
+    }
     return(
         <header className='header'>
             <div className='logo'>
@@ -20,11 +28,27 @@ function Header() {
             </div>
             <ul>
                 {user ? (
-                    <li>
-                        <button className='btn' onClick={onLogout}> 
-                            <FaSignOutAlt /> Logout
+                    <>
+                        <li>
+                        <button className='btn' onClick={onHome}> 
+                            Home
                         </button>
-                    </li>
+                        
+                        </li>
+                        <li>
+                        <button className='btn' onClick={onSettings}> 
+                            Dashboard
+                        </button>
+                        
+                        </li>
+                        <li>
+                            <button className='btn' onClick={onLogout}> 
+                                <FaSignOutAlt /> Logout
+                            </button>
+                            
+                        </li>
+
+                    </>
                 ) : (<>
                 <li>
                     <Link to='/login'>

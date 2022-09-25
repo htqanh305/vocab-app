@@ -132,7 +132,7 @@ input, textarea {
   margin: 10px 0;
   padding: 20px 0 10px;
   position: relative;
-  
+  border-radius: 5px;
 }
 
 .word{
@@ -164,6 +164,7 @@ input, textarea {
   height: 150px;
   border: none;
   perspective: 1000px; 
+  border-radius: 5px;
 }
 
 .flip-card-inner {
@@ -173,10 +174,12 @@ input, textarea {
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
+  border-radius: 5px;
 }
 
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
+  border-radius: 5px;
 }
 
 .flip-card-front, .flip-card-back {
@@ -188,6 +191,7 @@ input, textarea {
   height: 100%;
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
+  border-radius: 5px;
 }
 
 .flip-card-front {
@@ -346,6 +350,17 @@ input, textarea {
   animation: spin 1.2s linear infinite;
 }
 
+.dashBody {
+  padding-left: 0px;
+  padding-right: 0px;
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr;
+  align-items: center;
+}
+
+.dashRight {
+  padding: 50px 0px 50px 0px;
+}
 
 
 @keyframes spin {
@@ -357,11 +372,17 @@ input, textarea {
   }
 }
 
+@media (max-width: 800px){
+  .dashBody {
+    grid-template-columns: 1fr; 
+  }
+}
+
 @media (max-width: 600px) {
   .form {
     width: 90%;
   }
-
+  
   .heading h1 {
     font-size: 2rem;
   }

@@ -1,15 +1,15 @@
 import {useEffect} from 'react'
 import {useNavigate} from 'react-router-dom' // for redirecting
 import {useSelector, useDispatch} from 'react-redux' // grab user to check state
+import VocabForm from '../components/VocabForm'
+import VocabItem from '../components/VocabItem'
+import VocabSearchResult from '../components/VocabSearchResult'
 import VocabLearnedBoard from '../components/VocabLearnedBoard'
 import Spinner from '../components/Spinner'
-import LineChart from '../components/LineChart'
-import NewPieChart from '../components/NewPieChart'
-import LearnedPieChart from '../components/LearnedPieChart'
 import {getVocabs, getLearnedVocabs, reset} from '../features/vocabs/vocabSlice'
 
 
-function Dashboard() {
+function Home() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -45,20 +45,31 @@ function Dashboard() {
     return (
       <>
         <section className="heading">
-          <h1>Dashboard</h1>
+          <h1>Welcome {user.name} </h1>
         </section> 
 
-        <section className="dashBody">
-          <div className="dashLeft">
-            <NewPieChart/>
-            <LearnedPieChart/>
-          </div>
-          <div className="dashRight">
-            <LineChart/>
-          </div>
+        <div className="title"> Start adding vocabulary cards here</div>
+        
+        <VocabForm/>
+            
+
+        <section className="content">
+          {vocabs.length > 0 ? (
+            <div className="vocabs">
+              {vocabs.map((vocab) => (
+                <VocabItem key={vocab._id} vocab={vocab} />
+              ))}
+
+            </div>
+          ) : 
+          (<h3> You have not created any vocabulary cards </h3>)} 
+
         </section>
 
-        <VocabLearnedBoard/>
+
+        <VocabSearchResult/>
+
+
 
  
 
@@ -68,4 +79,4 @@ function Dashboard() {
 }
 }
 
-export default Dashboard
+export default Home
