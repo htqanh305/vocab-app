@@ -1,7 +1,8 @@
 import {useState} from 'react'
-import {useSelector, useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux'
+import {useNavigate} from 'react-router-dom' // for redirecting
 import { searchVocabs } from '../features/vocabs/vocabSlice'
-
+import {BiSearchAlt} from 'react-icons/bi'
 
 function VocabSearch() {
     const [search, setSearch] = useState({
@@ -10,6 +11,8 @@ function VocabSearch() {
     const { word } = search
     
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+
     
     const onChange = (e) => {
         setSearch((prevState) => ({
@@ -21,26 +24,29 @@ function VocabSearch() {
 
     const onSubmit = (e) => {
         e.preventDefault()
-
-        dispatch(searchVocabs(word))            
+        navigate('/collection')
+        dispatch(searchVocabs(word)) 
     }
 
     
-    return (
-    <section className="form">
-        <form onSubmit={onSubmit}>
-            <div className="form-group">
-                <label htmlFor="word">Enter the word you want to search:</label>
-                <input type="text"  name='word' id='word' value={word} required
-                onChange={onChange} />                
-            </div>
-            <div className="form-group">
-                <button className="btn btn-block" type='submit' >
-                    Search
-                </button>
-            </div>
-        </form>
-    </section>
+    return (        
+        <section className="form">
+
+            <form onSubmit={onSubmit}>
+                <ul>
+                    <li>
+                        <input className="search-input" type=" text" placeholder="Search friends' cards" 
+                        name='word' id='word' value={word} required onChange={onChange} />
+                    </li>
+                    <li>
+                        <button className="search-btn" type='submit'><BiSearchAlt/></button>
+                    </li>
+                </ul>
+                
+                
+            </form>   
+            
+        </section>
   )
 
 }

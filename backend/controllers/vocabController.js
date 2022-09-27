@@ -7,7 +7,8 @@ const User = require('../models/userModel') // to use for put/delete => only put
 // @route GET /api/vocabs
 // @access Private
 const getVocabs = asyncHandler(async (req, res) => {
-    const vocabs = await Vocab.find({ user: req.user.id, learned: false }) // get new vocabs
+    // get new vocabs, sorted descending order by create date
+    const vocabs = await Vocab.find({ user: req.user.id, learned: false }).sort({createdAt: -1}) 
 
     res.status(200).json(vocabs)
 })
@@ -16,7 +17,8 @@ const getVocabs = asyncHandler(async (req, res) => {
 // @route GET /api/vocabs
 // @access Private
 const getLearnedVocabs = asyncHandler(async (req, res) => {
-    const vocabs = await Vocab.find({ user: req.user.id, learned: true }) // get learned vocabs
+    // get learned vocabs, sorted descending order by update date
+    const vocabs = await Vocab.find({ user: req.user.id, learned: true }).sort({updatedAt: -1}) 
     res.status(200).json(vocabs)
 })
 

@@ -5,7 +5,9 @@ function VocabLearnedItem({vocab}) {
                 <div className="flip-card-inner">
                     <div className="flip-card-front">
                         <div className="card-block">
-                            
+                        <div>
+                            <p>Learned on: {new Date(vocab.updatedAt).toLocaleDateString('en-US')}</p>                            
+                        </div>
                             <h1 className="word">{vocab.word}</h1>
                             <h3>Sentence: "{vocab.sentence}"</h3>
                         </div>

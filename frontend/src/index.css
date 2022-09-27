@@ -68,7 +68,8 @@ input, textarea {
   width: 100%;
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 15px;
+  padding-bottom: 15px;
   text-align: center;
 }
 
@@ -107,8 +108,8 @@ input, textarea {
 .heading {
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 50px;
-  padding: 0 20px;
+  margin-bottom: 20px;
+  padding: 0 ;
 }
 
 .heading p {
@@ -122,6 +123,8 @@ input, textarea {
   margin-bottom: 30px;  
   margin-top: 30px;  
 }
+
+
 
 .vocabs {
   display: grid;
@@ -211,7 +214,7 @@ input, textarea {
 
 .word-type {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   padding: 10px;
   justify-content: space-between;
   border: 1px solid var(--borderColor);
@@ -364,6 +367,43 @@ input, textarea {
   padding: 50px 0px 50px 0px;
 }
 
+.formBody {
+  padding-left: 0px;
+  padding-right: 0px;
+  display: grid;
+  grid-template-columns: 1.5fr 0.5fr;
+  align-items: center;
+}
+
+.formLeft, .formRight {
+  padding: 10px
+}
+
+.search-input {
+  width: 100%;
+  height: 25px;
+  border: 1px solid var(--borderColor);
+  border-radius: 5px;
+  font-family: inherit;
+}
+.search-btn{
+  padding: 10px;
+  border: none;
+  background: none;
+  color: var(--secondaryText);
+  font-size: 1.5rem;
+  font-weight: inherit;
+  cursor: pointer;
+  text-align: center;
+  appearance: button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form ul li {
+  margin-left: 2px;
+}
 
 @keyframes spin {
   0% {
@@ -376,6 +416,12 @@ input, textarea {
 
 @media (max-width: 800px){
   .dashBody {
+    grid-template-columns: 1fr; 
+  }
+  .vocabs {
+    grid-template-columns: 1fr;
+  }
+  .formBody {
     grid-template-columns: 1fr; 
   }
 }

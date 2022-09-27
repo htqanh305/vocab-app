@@ -9,9 +9,6 @@ function VocabSearchResult() {
 
     return (
       <>
-        <div className="title"> Search your friends' cards</div>
-        <VocabSearch/>
-        
         <section className="content">
           {searchedVocabs.length > 0 ? (
             <div className="vocabs">
@@ -21,8 +18,7 @@ function VocabSearchResult() {
 
             </div>
           ) : 
-          ( <div>
-              <h3> You have not searched any cards or  </h3>
+          ( <div>            
               <h3> Your friends have not created any card for the word you searched </h3>
           </div>
           

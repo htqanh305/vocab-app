@@ -67,12 +67,6 @@ function Home() {
         </section>
 
 
-        <VocabSearchResult/>
-
-
-
- 
-
       </>
     )
 

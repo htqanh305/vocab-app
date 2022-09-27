@@ -21,12 +21,6 @@ function Dashboard() {
       console.log(message)
     }
 
-    /*if(!user) {
-      navigate('/login')
-    }*/
-
-    // dispatch(reset()) // so that can delete multiple goals at once
-
     return () => {
       dispatch(getVocabs())
       dispatch(getLearnedVocabs())

@@ -36,6 +36,14 @@ function VocabEdit({vocab}) {
                 <input type="text"  name='word' id='word' placeholder={vocab.word} value={word} required
                 onChange={onChange} />
 
+                <label htmlFor="definition">Edit definition:</label>
+                <input type="text"  name='definition' id='definition' placeholder={vocab.definition} value={definition} required
+                onChange={onChange} />
+
+                <label htmlFor="sentence">Edit sentence:</label>
+                <textarea type="text"  name='sentence' id='sentence' placeholder={vocab.sentence} value={sentence} required
+                onChange={onChange} />
+
                 <fieldset className="word-type-edit">
                     <legend>Type of the word: </legend>
 
@@ -54,19 +62,8 @@ function VocabEdit({vocab}) {
                     <div>Conjunction <input type="radio"  name='wordType' id='conj' value='conj' required
                     onChange={onChange} /> </div>
                     <div>Interjection<input type="radio"  name='wordType' id='int' value='int' required
-                    onChange={onChange} /> </div>            
-                    
-                     
-
+                    onChange={onChange} /> </div> 
                 </fieldset>
-
-                <label htmlFor="definition">Edit definition:</label>
-                <input type="text"  name='definition' id='definition' placeholder={vocab.definition} value={definition} required
-                onChange={onChange} />
-
-                <label htmlFor="sentence">Edit sentence:</label>
-                <textarea type="text"  name='sentence' id='sentence' placeholder={vocab.sentence} value={sentence} required
-                onChange={onChange} />
             </div>
             <div className="form-group">
                 <button className="edit-btn" type='submit' >
