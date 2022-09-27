@@ -36,7 +36,8 @@ function VocabForm() {
                 <input type="text"  name='word' id='word' value={word} required
                 onChange={onChange} />
                 
-
+                            
+               
                 <fieldset className="word-type">
                     <legend>Type of the word: </legend>
 

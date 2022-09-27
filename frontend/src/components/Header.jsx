@@ -1,4 +1,4 @@
-import {FaSignInAlt, FaSignOutAlt, FaUser} from 'react-icons/fa'
+
 import {Link, useNavigate} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import {logout, reset} from '../features/auth/authSlice'
@@ -13,14 +13,6 @@ function Header() {
         dispatch(reset())
         navigate('/login')
     }
-
-    const onSettings = () => {
-        navigate('/dashboard')
-    }
-
-    const onHome = () => {
-        navigate('/')
-    }
     return(
         <header className='header'>
             <div className='logo'>
@@ -29,37 +21,13 @@ function Header() {
             <ul>
                 {user ? (
                     <>
-                        <li>
-                        <button className='btn' onClick={onHome}> 
-                            Home
-                        </button>
-                        
-                        </li>
-                        <li>
-                        <button className='btn' onClick={onSettings}> 
-                            Dashboard
-                        </button>
-                        
-                        </li>
-                        <li>
-                            <button className='btn' onClick={onLogout}> 
-                                <FaSignOutAlt /> Logout
-                            </button>
-                            
-                        </li>
+                        <li><a href='/dashboard'>Dashboard</a></li>
+                        <li><a href='' onClick={onLogout}>Logout</a></li>                           
 
                     </>
                 ) : (<>
-                <li>
-                    <Link to='/login'>
-                        <FaSignInAlt /> Login
-                    </Link>
-                </li>
-                <li>
-                    <Link to='/register'>
-                        <FaUser /> Register
-                    </Link>
-                </li>
+                        <li><a href='/login'>Login</a></li>
+                        <li><a href='/register'>Register</a></li>
                 </>)}
             
             </ul>

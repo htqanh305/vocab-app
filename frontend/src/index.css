@@ -7,7 +7,7 @@
   --borderColor: #5d88ac;
 
 
-  --mainText:rgb(165, 208, 235); /*variable to use across the site*/
+  --mainText:rgb(165, 208, 235); 
   --secondaryText: #fff7d0; 
 
   --themeDotBorder: rgb(140, 206, 239); 
@@ -61,7 +61,9 @@ input, textarea {
   background-color: rgb(34, 43, 90);
 }
 
-
+.logo {
+  font-size: 24px;
+}
 .container {
   width: 100%;
   max-width: 960px;

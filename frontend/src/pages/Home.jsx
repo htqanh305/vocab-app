@@ -45,7 +45,7 @@ function Home() {
     return (
       <>
         <section className="heading">
-          <h1>Welcome {user.name} </h1>
+          <h2>Welcome {user.name} </h2>
         </section> 
 
         <div className="title"> Start adding vocabulary cards here</div>

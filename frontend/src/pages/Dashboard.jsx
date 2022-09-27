@@ -45,7 +45,7 @@ function Dashboard() {
     return (
       <>
         <section className="heading">
-          <h1>Dashboard</h1>
+          <h2>Dashboard</h2>
         </section> 
 
         <section className="dashBody">
