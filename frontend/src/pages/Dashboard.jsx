@@ -34,7 +34,7 @@ function Dashboard() {
 
 
  if(!user) {
-    navigate('/login')
+    return ('/login')
   } else {
     return (
       <>
@@ -42,7 +42,7 @@ function Dashboard() {
           <h2>Dashboard</h2>
         </section> 
 
-        <section className="dashBody">
+        <section className="content dashBody">
           <div className="dashLeft">
             <NewPieChart/>
             <LearnedPieChart/>

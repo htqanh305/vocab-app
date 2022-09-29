@@ -1,6 +1,6 @@
 import {useSelector, useDispatch} from 'react-redux' // grab user to check state
 import VocabSearchItem from './VocabSearchItem'
-import VocabSearch from './VocabSearch'
+
 
 
 function VocabSearchResult() {
@@ -9,7 +9,8 @@ function VocabSearchResult() {
 
     return (
       <>
-        <section className="content">
+        
+          
           {searchedVocabs.length > 0 ? (
             <div className="vocabs">
               {searchedVocabs.map((vocab) => (
@@ -18,13 +19,13 @@ function VocabSearchResult() {
 
             </div>
           ) : 
-          ( <div>            
-              <h3> Your friends have not created any card for the word you searched </h3>
+          ( <div >            
+              
           </div>
           
           )} 
 
-        </section>
+        
       </>
     )
 

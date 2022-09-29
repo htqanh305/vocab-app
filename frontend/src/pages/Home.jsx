@@ -3,8 +3,6 @@ import {useNavigate} from 'react-router-dom' // for redirecting
 import {useSelector, useDispatch} from 'react-redux' // grab user to check state
 import VocabForm from '../components/VocabForm'
 import VocabItem from '../components/VocabItem'
-import VocabSearchResult from '../components/VocabSearchResult'
-import VocabLearnedBoard from '../components/VocabLearnedBoard'
 import Spinner from '../components/Spinner'
 import {getVocabs, getLearnedVocabs, reset} from '../features/vocabs/vocabSlice'
 
@@ -25,7 +23,7 @@ function Home() {
       navigate('/login')
     }*/
 
-    // dispatch(reset()) // so that can delete multiple goals at once
+    //dispatch(reset()) // so that can delete multiple goals at once
 
     return () => {
       dispatch(getVocabs())

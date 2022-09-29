@@ -32,7 +32,7 @@ function VocabItem({vocab}) {
         </div>
 
         
-       <button onClick={() => setButtonPopup(true)} className="edit" > Edit </button>
+       <button onClick={() => setButtonPopup(true)} className="edit"> Edit </button>
        {/*<button onClick={async () => {
            await dispatch(editVocab(vocab._id))
             dispatch(getVocabs()) }} className="edit">Edit</button> */}
@@ -43,7 +43,7 @@ function VocabItem({vocab}) {
             dispatch(getLearnedVocabs())
             }} className="close">Mark Learned</button>
 
-        <Popup trigger={buttonPopup} setTrigger={setButtonPopup}> 
+        <Popup  trigger={buttonPopup} setTrigger={setButtonPopup}> 
             <VocabEdit key={vocab._id} vocab={vocab}/>
         </Popup>
 

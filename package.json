@@ -24,7 +24,8 @@
     "mongoose": "^6.6.0",
     "react-apexcharts": "^1.4.0",
     "react-bootstrap": "^2.5.0",
-    "react-inline-editing": "^1.0.10"
+    "react-inline-editing": "^1.0.10",
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "concurrently": "^7.4.0",
