@@ -447,11 +447,11 @@ input, textarea {
 .mobile-menu-inact {
 	
   position: absolute;
+  display: none;
 	top: 70px;
 	left: 100%;
 	width: 100%;
 	min-height: 60vh;
-	display: block;
   z-index: 98;
 	background-color: var(--mainColor);
 	padding-top: 40px;
@@ -583,6 +583,23 @@ input, textarea {
   align-items: center;
   justify-content: center;
   opacity: 0.96;
+}
+.def-content{
+  margin: 20px 10px 10px 10px;
+  padding: 10px;
+}
+
+.def-list {
+  display: block;
+  
+}
+.def-item{
+  
+  text-align: left;
+  background-color: var(--mainColor);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px
 }
 
 @keyframes spin {

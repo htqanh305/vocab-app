@@ -1,18 +1,16 @@
 import {useEffect} from 'react'
 import {useNavigate} from 'react-router-dom' // for redirecting
 import {useSelector, useDispatch} from 'react-redux' // grab user to check state
-import VocabSearch from '../components/VocabSearch'
 import Spinner from '../components/Spinner'
+import WordLookUp from '../components/WordLookUp'
 
-import VocabSearchResult from '../components/VocabSearchResult'
 
-
-function CardCollection() {
+function DictLookUp() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const {user, isLoading, isError, message} = useSelector((state) => state.auth) 
-  
+   
 
  
   useEffect(() => {
@@ -35,16 +33,13 @@ function CardCollection() {
     return (
       <>
         <section className="heading">
-          <h3>Friends' Cards</h3>
+          <h3>Look Up Definition</h3>
         </section> 
         <section className='content'>
           <div >            
-                <VocabSearch/>
+          <WordLookUp/>
           </div>
-          <div className='vocab-search-result'>
-            <VocabSearchResult/>
-          </div>
-
+          
         </section>
         
       </>
@@ -52,4 +47,4 @@ function CardCollection() {
     }
 }
 
-export default CardCollection
+export default DictLookUp

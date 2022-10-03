@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import CardCollection from './pages/CardCollection';
+import DictionaryLookUp from './pages/DictionaryLookUp'
 
 
 
@@ -22,6 +23,7 @@ function App() {
           <Route path='/' element={<Home/>} />
           <Route path='/dashboard' element={<Dashboard/>} />
           <Route path='/collection' element={<CardCollection/>} />
+          <Route path='/lookup' element={<DictionaryLookUp/>} />
           <Route path='/login' element={<Login/>} />
           <Route path='/register' element={<Register/>} />
         </Routes>

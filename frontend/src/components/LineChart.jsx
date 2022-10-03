@@ -85,8 +85,7 @@ function LineChart() {
             type="line"
             height="400px"
             width="100%"
-            align="center"
-            
+            align="center"            
         />
     )
 

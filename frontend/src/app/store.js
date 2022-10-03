@@ -5,6 +5,7 @@ import vocabReducer from '../features/vocabs/vocabSlice'
 export const store = configureStore({
   reducer: {
       auth: authReducer,
-      vocabs: vocabReducer
+      vocabs: vocabReducer,
+      
   },
 });

@@ -44,7 +44,7 @@ const getLearnedVocabs = async (token) => {
 // search for word
 const searchVocabs = async (word) => {
     const response = await axios.get(API_URL + word)
-
+    console.log(response.data)
     return response.data
 }
 
@@ -56,7 +56,7 @@ const editVocab = async (vocabId, vocabData, token) => {
         }
     }
 
-    const response = await axios.put(API_URL + vocabId, vocabData, config)
+    const response = await axios.put(API_URL + vocabId, vocabData, config)   
 
     return response.data
 }

@@ -45,6 +45,9 @@ function Header() {
                         <li className='menu'>
                             <VocabSearch/>          
                         </li>
+                        <li className='menu'>
+                            <a href='/lookup'>Dictionary</a>         
+                        </li>
                         <li className='menu'><a onClick={onLogout}>Logout</a></li>
                     </ul>   
                     <a className="burger" onClick={ToggleClass}><FaBars /></a>
@@ -54,7 +57,8 @@ function Header() {
                 <nav className={isActive ? "mobile-menu-act" : "mobile-menu-inact"}>                    
                     <a href='/'>Home</a>
                     <a href='/dashboard'>Dashboard</a>            
-                    <a href='/collection' >Search Friends' Card</a>          
+                    <a href='/collection' >Search Friends' Card</a>   
+                    <a href='/lookup' >Dictionary</a>       
                     <a onClick={() => { onLogout(); ToggleClass()}}>Logout</a>
 	            </nav> 
                 
