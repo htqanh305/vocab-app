@@ -14,7 +14,7 @@ function LineChart() {
 
     // count to number of learned vocabs for each date
     for (let vocab of learnedVocabs) {   
-        let date = new Date(vocab.updatedAt).toLocaleDateString('en-US')
+        let date = new Date(vocab.updatedAt).toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' })
         dateMap.has(date) ? 
         (dateMap.set(date, [0, dateMap.get(date)[1] + 1])) : 
         (dateMap.set(date, [0, 1]))
@@ -22,14 +22,21 @@ function LineChart() {
 
     // count to number of new vocabs for each date
     for (let vocab of newVocabs) {   
-        let date = new Date(vocab.updatedAt).toLocaleDateString('en-US')
+        let date = new Date(vocab.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' })
         dateMap.has(date) ? 
         (dateMap.set(date, [dateMap.get(date)[0] + 1, dateMap.get(date)[1]])) : 
         (dateMap.set(date, [1, 0]))
     }
 
+
+    // sort date in the map in ascending order
+
+    var dateMapSorted = new Map([...dateMap.entries()].sort(([a], [b]) => a.localeCompare(b)))
+
+
+    
     // JS map reverses (key, value) here for some reason
-    dateMap.forEach((value, key) => {
+    dateMapSorted.forEach((value, key) => {
         dates.push(key)
         newNum.push(value[0])
         learnedNum.push(value[1])

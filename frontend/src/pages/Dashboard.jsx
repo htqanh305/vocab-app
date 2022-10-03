@@ -8,7 +8,6 @@ import NewPieChart from '../components/NewPieChart'
 import LearnedPieChart from '../components/LearnedPieChart'
 import {getVocabs, getLearnedVocabs, reset} from '../features/vocabs/vocabSlice'
 
-
 function Dashboard() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -34,14 +33,14 @@ function Dashboard() {
 
 
  if(!user) {
-    return ('/login')
+    navigate ('/login')
   } else {
     return (
       <>
         <section className="heading">
           <h2>Dashboard</h2>
         </section> 
-
+        
         <section className="content dashBody">
           <div className="dashLeft">
             <NewPieChart/>
@@ -51,8 +50,13 @@ function Dashboard() {
             <LineChart/>
           </div>
         </section>
-
         <VocabLearnedBoard/>
+
+        
+
+        
+
+        
 
  
 

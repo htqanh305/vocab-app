@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import {useDispatch} from 'react-redux'
-import { createVocab } from '../features/vocabs/vocabSlice'
+import { createVocab, getVocabs } from '../features/vocabs/vocabSlice'
 
 
 function VocabForm() {
@@ -22,10 +22,11 @@ function VocabForm() {
     }
     
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault()
 
-        dispatch(createVocab(wordCard))
+        await dispatch(createVocab(wordCard))
+        dispatch(getVocabs())
     }
 
     return (
@@ -74,17 +75,7 @@ function VocabForm() {
 
                 </div>
                 
-                
-                
-                
-                            
-               
-                
-                
-              
-
-
-                
+    
             </div>
             <div className="form-group">
                 <button className="btn btn-block" type='submit' >

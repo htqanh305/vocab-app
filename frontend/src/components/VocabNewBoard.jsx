@@ -1,27 +1,25 @@
-import { useState} from 'react'
-
+import { useState, useEffect} from 'react'
 import {useSelector} from 'react-redux' 
-import VocabLearnedItem from './VocabLearnedItem'
+import VocabNewItem from "./VocabNewItem"
 import Pagination from './Pagination'
-import { useEffect } from 'react'
 
 
 
-function VocabLearnedBoard() {
+function VocabNewBoard() {
+    const newVocabs = useSelector((state) => state.vocabs.vocabs)
+    const [cardsPerPage] = useState(6)
+    const [vocabs, setVocabs ] = useState(newVocabs)
 
-  const learnedVocabs = useSelector((state) => state.vocabs.learnedVocabs)
-  const [vocabs, setVocabs ] = useState(learnedVocabs)
-  const [cardsPerPage] = useState(6)
-  useEffect(() => { setVocabs(learnedVocabs)},[learnedVocabs])
-
+    useEffect(() => { setVocabs(newVocabs)},[newVocabs])
+  
     // this allow the mutation of the array 
-    const sortVocabs = [...learnedVocabs]
+    const sortVocabs = [...newVocabs]
     sortVocabs.sort((a,b) => {
         if (a.word < b.word) return -1
         if (a.word > b.word) return 1
         return 0
     })
-
+   
     // sort cards alphabetically
     const alphaOrder = () => {
         setVocabs(sortVocabs)        
@@ -29,17 +27,14 @@ function VocabLearnedBoard() {
 
     // sort cards alphabetically
     const dateOrder = () => {
-        setVocabs(learnedVocabs)        
+        setVocabs(newVocabs)        
     }
-
+  
     return (
-      <>
-        <div className="title"> Learned vocabulary</div>
-                
-        <section className="content">
-          {learnedVocabs.length > 0 ? (
+        <>
+            {vocabs.length > 0 ? (
             <div>
-              <div className="sortButtons">
+                <div className="sortButtons">
                     <ul >
                         <li>
                             <button className="sort btn-block" onClick={alphaOrder} >
@@ -48,27 +43,21 @@ function VocabLearnedBoard() {
                         </li>
                         <li>
                             <button className="sort btn-block" onClick={dateOrder} >
-                              Sort by Most Recent 
+                                Sort by Most Recent
                             </button>
                         </li>                   
                         
                     </ul>
                 </div>     
 
-
-                <Pagination vocabs={vocabs} Card={VocabLearnedItem} cardLimit={cardsPerPage}/>
-
-            </div>) :
-          ( <div>
-              <h3>You have not learned any words.</h3>
+                 <Pagination vocabs={vocabs} Card={VocabNewItem} cardLimit={cardsPerPage}/>
               
-          </div>          
-          )}
-
-        </section>
-      </>
+            </div>
+            ) : 
+            (<h3> You have not created any vocabulary cards </h3>)} 
+        </>
     )
 
 }
 
-export default VocabLearnedBoard
+export default VocabNewBoard

@@ -11,13 +11,13 @@ function VocabSearchItem({vocab}) {
                                 <h6>Author: {vocab.author}</h6>
                             </div>
                             <h1 className="word">{vocab.word}</h1>
-                            <h3>Sentence: "{vocab.sentence}"</h3>
+                            <h3 className="sentence">Sentence: "{vocab.sentence}"</h3>
                         </div>
                     </div>
                     <div className="flip-card-back">
                         <div className="card-block">
                             <h4>( {vocab.wordType} )</h4>
-                            <h3>Definition: {vocab.definition}</h3>
+                            <h3 className="definition">Definition: {vocab.definition}</h3>
                         </div>
                     </div>
                 </div>

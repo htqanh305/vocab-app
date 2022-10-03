@@ -34,7 +34,7 @@ function VocabSearch() {
 
             <form onSubmit={onSubmit}>
                 <ul>
-                    <li>
+                    <li className="search">
                         <input className="search-input" type=" text" placeholder="Search friends' cards" 
                         name='word' id='word' value={word} required onChange={onChange} />
                     </li>

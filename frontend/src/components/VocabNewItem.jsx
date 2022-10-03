@@ -2,9 +2,9 @@ import {useDispatch} from 'react-redux'
 import { deleteVocab, getVocabs, getLearnedVocabs } from '../features/vocabs/vocabSlice'
 import { useState } from 'react'
 import Popup from './Popup'
-import VocabEdit from './VocabEdit'
+import VocabNewEdit from './VocabNewEdit'
 
-function VocabItem({vocab}) {
+function VocabNewItem({vocab}) {
     const dispatch = useDispatch()
     const [buttonPopup, setButtonPopup] = useState(false)
 
@@ -19,13 +19,13 @@ function VocabItem({vocab}) {
                             <p>Created on: {new Date(vocab.createdAt).toLocaleDateString('en-US')}</p>                            
                         </div>
                         <h1 className="word">{vocab.word}</h1>
-                        <h3>My sentence: "{vocab.sentence}"</h3>
+                        <h3 className="sentence">My sentence: "{vocab.sentence}"</h3>
                     </div>
                 </div>
                 <div className="flip-card-back">
                     <div className="card-block">
                         <h4>( {vocab.wordType} )</h4>
-                        <h3>Definition: {vocab.definition}</h3>
+                        <h3 className="definition">Definition: {vocab.definition}</h3>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@ function VocabItem({vocab}) {
             }} className="close">Mark Learned</button>
 
         <Popup  trigger={buttonPopup} setTrigger={setButtonPopup}> 
-            <VocabEdit key={vocab._id} vocab={vocab}/>
+            <VocabNewEdit key={vocab._id} vocab={vocab}/>
         </Popup>
 
     </div>
@@ -52,4 +52,4 @@ function VocabItem({vocab}) {
   )
 }
 
-export default VocabItem
+export default VocabNewItem

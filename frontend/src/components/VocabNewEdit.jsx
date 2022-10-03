@@ -3,7 +3,7 @@ import {useDispatch} from 'react-redux'
 import { editVocab, getVocabs } from '../features/vocabs/vocabSlice'
 
 
-function VocabEdit({vocab}) {
+function VocabNewEdit({vocab}) {
     const [wordCard, setCard] = useState({
         word: '',
         definition: '',
@@ -76,4 +76,4 @@ function VocabEdit({vocab}) {
 
 }
 
-export default VocabEdit
+export default VocabNewEdit

@@ -10,7 +10,7 @@
   --mainText:rgb(165, 208, 235); 
   --secondaryText: #fff7d0; 
 
-  --themeDotBorder: rgb(140, 206, 239); 
+  --clicked: rgb(140, 206, 239); 
 
   --previewBg: rgba(7, 35, 53, 0.804);
   --previewShadow: #07162e; 
@@ -44,11 +44,16 @@ p {
 }
 
 ul {
+  display:flex;
   list-style: none;
 }
 
 li {
   line-height: 2.2;
+}
+
+li.search {
+  display:contents;
 }
 
 h1, h2, h3, h4, h5, h6, strong {
@@ -131,9 +136,8 @@ input, textarea {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 30px;  
+  margin-top: 30px;
 }
-
-
 
 .vocabs {
   display: grid;
@@ -147,10 +151,15 @@ input, textarea {
   padding: 20px 0 10px;
   position: relative;
   border-radius: 5px;
+  height:fit-content;
 }
 
 .word{
   color: var(--secondaryText)
+}
+
+.sentence, .definition {
+  text-align: left;
 }
 .vocab .edit {
   position: absolute;
@@ -173,12 +182,13 @@ input, textarea {
 
 .flip-card {
   background-color: transparent;
-  padding: 10px 0px 0px 0px;
+  padding: 10px 15px 0px 15px;
   width: 100%;
   height: 150px;
   border: none;
   perspective: 1000px; 
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .flip-card-inner {
@@ -189,6 +199,7 @@ input, textarea {
   transition: transform 0.8s;
   transform-style: preserve-3d;
   border-radius: 5px;
+
 }
 
 .flip-card:hover .flip-card-inner {
@@ -228,7 +239,8 @@ input, textarea {
   justify-content: space-between;
   border: 1px solid var(--borderColor);
   border-radius: 5px;
-  color: var(--mainText)
+  color: var(--mainText);
+  
 }
 
 .word-type-edit {
@@ -406,6 +418,10 @@ input, textarea {
   display: flex;
 }
 
+.vocab-search-result {
+  padding-top: 30px;
+}
+
 .form ul li {
   margin-left: 2px;
 }
@@ -425,16 +441,18 @@ input, textarea {
   justify-content: center;
   display: none;
 }
-
+.menu {
+  cursor: pointer;
+}
 .mobile-menu-inact {
 	
-  position: fixed;
+  position: absolute;
 	top: 70px;
 	left: 100%;
 	width: 100%;
 	min-height: 60vh;
 	display: block;
-	z-index: 98;
+  z-index: 98;
 	background-color: var(--mainColor);
 	padding-top: 40px;
 	transition: 0.4s;
@@ -448,7 +466,7 @@ input, textarea {
 	width: 100%;
 	min-height: 60vh;
 	display: none;
-	z-index: 98;
+  z-index: 98;
 	background-color: var(--mainColor);
 	padding-top: 40px;
 	transition: 0.4s;
@@ -474,6 +492,98 @@ input, textarea {
   border: 1px solid var(--secondaryText);
 }
 
+.pagination{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.pagination-item{
+  width: 30px;
+  height: 40px;
+  position: relative;
+  display: block;
+  padding: 4px;
+  color: var(--secondaryText);
+  font-size: 18px;
+  background-color: var(--mainColor); 
+  cursor: pointer;
+}
+
+.pagination-item span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.prev,
+.next {
+  width: 50px;
+  height: 40px;
+  position: relative;
+  display: block;
+  padding: 8px;
+  text-align: center;
+  color: var(--secondaryText);
+  background-color: var(--mainColor); 
+  cursor: pointer;
+}
+
+.pagination-item.active {
+  border: 1px solid #888;
+  color: #888;
+  pointer-events: none;
+}
+
+.prev.disabled,
+.next.disabled {
+  pointer-events: none;
+  box-shadow: none;
+  color: #999;
+}
+
+
+.page-link:hover {
+  background-color: var(--secondaryColor);
+}
+
+.page-link:focus {
+  background-color: var(--clicked);
+  color: var(--mainColor);
+  font-weight: 900;
+}
+
+.page-link:active {
+  background-color: var(--clicked);
+}
+
+.page-item{    
+  border: var(--borderColor) solid 
+}
+
+.sortButtons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sort{
+  padding: 10px 20px;
+  border: 1px solid var(--secondaryText);
+  border-radius: 5px;
+  background: var(--previewShadow);
+  color: var(--secondaryText);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  appearance: button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.96;
+}
 
 @keyframes spin {
   0% {

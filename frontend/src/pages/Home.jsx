@@ -1,8 +1,8 @@
 import {useEffect} from 'react'
 import {useNavigate} from 'react-router-dom' // for redirecting
 import {useSelector, useDispatch} from 'react-redux' // grab user to check state
-import VocabForm from '../components/VocabForm'
-import VocabItem from '../components/VocabItem'
+import VocabNewForm from '../components/VocabNewForm'
+import VocabNewBoard from '../components/VocabNewBoard'
 import Spinner from '../components/Spinner'
 import {getVocabs, getLearnedVocabs, reset} from '../features/vocabs/vocabSlice'
 
@@ -23,7 +23,7 @@ function Home() {
       navigate('/login')
     }*/
 
-    //dispatch(reset()) // so that can delete multiple goals at once
+    //dispatch(reset()) 
 
     return () => {
       dispatch(getVocabs())
@@ -48,20 +48,12 @@ function Home() {
 
         <div className="title"> Start adding vocabulary cards here</div>
         
-        <VocabForm/>
+        <VocabNewForm/>
             
 
         <section className="content">
-          {vocabs.length > 0 ? (
-            <div className="vocabs">
-              {vocabs.map((vocab) => (
-                <VocabItem key={vocab._id} vocab={vocab} />
-              ))}
-
-            </div>
-          ) : 
-          (<h3> You have not created any vocabulary cards </h3>)} 
-
+          <VocabNewBoard/>
+          
         </section>
 
 

@@ -12,9 +12,25 @@ function CardCollection() {
   const dispatch = useDispatch()
 
   const {user} = useSelector((state) => state.auth) 
+  const {vocabs, isLoading, isError, message} = useSelector((state) => state.vocabs)  
+
  
+  useEffect(() => {
+    if(isError) {
+      console.log(message)
+    }
+
+    if(!user) {
+      navigate('/login')
+    }
+  }, [user, navigate, isError, message])
+
+  if(isLoading) {
+    return <Spinner />
+  }
+
  if(!user) {
-    navigate('/login')
+    navigate ('/login')
   } else {
     return (
       <>
@@ -25,7 +41,10 @@ function CardCollection() {
           <div >            
                 <VocabSearch/>
           </div>
-          <VocabSearchResult/>
+          <div className='vocab-search-result'>
+            <VocabSearchResult/>
+          </div>
+          
         </section>
         
       </>

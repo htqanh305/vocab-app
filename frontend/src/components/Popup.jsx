@@ -1,4 +1,3 @@
-import VocabEdit from "./VocabEdit";
 
 function Popup(props) {
   return (props.trigger) ?(
