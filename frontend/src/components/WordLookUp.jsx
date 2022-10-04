@@ -82,7 +82,7 @@ function WordLookUp() {
                 {result.map((item, index) => {
                     return (
                                 <li className='def-item' key={index}>
-                                    <p> <h4 style={{color: '#fff7d0'}} >{index + 1}. </h4>{"("}{item.partOfSpeech}{")"} {item.definition}</p> 
+                                    <p> <h4  >{index + 1}. </h4>{"("}{item.partOfSpeech}{")"} {item.definition}</p> 
                                 </li>
                     )
                 })}

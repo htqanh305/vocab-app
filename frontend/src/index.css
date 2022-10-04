@@ -602,6 +602,10 @@ input, textarea {
   margin: 10px
 }
 
+.def-item h4 {
+  color: var(--secondaryText)
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
