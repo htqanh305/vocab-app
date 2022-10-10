@@ -20,9 +20,11 @@ function Dashboard() {
       console.log(message)
     }
 
+    dispatch(getVocabs())
+    dispatch(getLearnedVocabs())
+
     return () => {
-      dispatch(getVocabs())
-      dispatch(getLearnedVocabs())
+      dispatch(reset())
     }
    
   }, [user, navigate, isError, message, dispatch])
