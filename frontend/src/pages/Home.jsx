@@ -19,11 +19,11 @@ function Home() {
       console.log(message)
     }
 
-    /*if(!user) {
+    if(!user) {
       navigate('/login')
-    }*/
+    }
 
-    //dispatch(reset()) 
+    dispatch(reset()) 
 
     return () => {
       dispatch(getVocabs())
