@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'https://vocapp.herokuapp.com/api/vocabs/'
+const API_URL = '/api/vocabs/'
 
 // create new vocab
 const createVocab = async (vocabData, token) => {
