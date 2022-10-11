@@ -25,8 +25,8 @@ function WordLookUp() {
         method: 'GET',
         url: 'https://wordsapiv1.p.rapidapi.com/words/' + word ,
         headers: {
-          'X-RapidAPI-Key': 'c51749a2f0mshe8eb7589c67766bp142f02jsne4d56a861c60',
-          'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
+          'X-RapidAPI-Key': key,
+          'X-RapidAPI-Host': host
         }}
       
        await axios.request(options)
