@@ -20,6 +20,10 @@ function Dashboard() {
       console.log(message)
     }
 
+    if(!user) {
+      navigate ('/login')
+    }
+
     dispatch(getVocabs())
     dispatch(getLearnedVocabs())
 

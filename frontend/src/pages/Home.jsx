@@ -23,10 +23,9 @@ function Home() {
       navigate('/login')
     }
 
-    dispatch(getVocabs())
-    dispatch(getLearnedVocabs())
+    dispatch(getVocabs())    
 
-    return () => {
+    return () => {      
       dispatch(reset())      
     }
    
