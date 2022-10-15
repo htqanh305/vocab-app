@@ -1,7 +1,10 @@
 const path = require('path')
 const express = require('express')
 const colors = require('colors')
-const dotenv = require('dotenv').config()
+// if run locally or npm run dev/server use this line
+//const dotenv = require('dotenv').config()
+// if run on AWS pm2 or 'node server.js' then use this line instead
+const dotenv = require('dotenv').config({path: '../.env'})
 const {errorHandler} = require('./middleware/errorMiddleware')
 const connectDB = require('./config/db')
 const port = process.env.PORT || 5000
